@@ -973,11 +973,12 @@
 
   // ===== QUOTE FORM =====
   // To use Formspree instead of email, paste your endpoint here (e.g. "https://formspree.io/f/abcdwxyz")
-  var FORMSPREE_ENDPOINT = "";
+  var FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvzegaj";
 
   function val(id){ return (document.getElementById(id).value || "").trim(); }
 
   document.getElementById('f-submit').addEventListener('click', function(){
+    var btn = document.getElementById('f-submit');
     var name = val('f-name'), phone = val('f-phone');
     if(!name || !phone){
       alert('Please add your name and phone number so we can get back to you.');
@@ -993,13 +994,16 @@
       'Job Details': val('f-details') || '—'
     };
     if(FORMSPREE_ENDPOINT){
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
       fetch(FORMSPREE_ENDPOINT, {
         method:'POST',
         headers:{'Accept':'application/json','Content-Type':'application/json'},
         body: JSON.stringify(data)
       }).then(function(r){
-        if(r.ok){ showSent(); } else { fallbackEmail(data); }
-      }).catch(function(){ fallbackEmail(data); });
+        if(r.ok){ showSent(); }
+        else { btn.disabled = false; fallbackEmail(data); }
+      }).catch(function(){ btn.disabled = false; fallbackEmail(data); });
     } else {
       fallbackEmail(data);
     }
