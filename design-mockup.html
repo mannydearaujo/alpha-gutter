@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha Seamless Gutter | Modern Design Mockup</title>
+<meta name="description" content="Modern layout mockup for Alpha Seamless Gutter, LLC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #ef6e2b;
+    --orange-dark: #c6531d;
+    --ink: #272b33;
+    --ink-2: #323742;
+    --steel: #4b5360;
+    --paper: #f5f3ef;
+    --paper-2: #e8e3da;
+    --white: #ffffff;
+    --muted: #6b7078;
+    --soft: #b6bbc3;
+    --max: 1180px;
+    --shadow: 0 24px 70px rgba(14, 18, 24, 0.22);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(39,43,51,0.035) 1px, transparent 1px) 50% 0 / 88px 88px,
+      linear-gradient(rgba(39,43,51,0.025) 1px, transparent 1px) 0 50% / 88px 88px;
+    opacity: 0.8;
+    z-index: -1;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+  .compact { width: min(980px, calc(100% - 44px)); margin: 0 auto; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--orange);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 36px;
+    height: 2px;
+    background: currentColor;
+  }
+
+  h1, h2, h3, h4 {
+    margin: 0;
+    font-family: "Barlow Condensed", "Barlow", sans-serif;
+    font-weight: 800;
+    line-height: 0.96;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  p { margin: 0; }
+
+  .btn {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 22px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.06rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    white-space: nowrap;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--orange); color: var(--white); box-shadow: inset 0 -3px 0 rgba(0,0,0,0.18); }
+  .btn-primary:hover { background: var(--orange-dark); }
+  .btn-dark { background: rgba(39,43,51,0.86); color: var(--white); border-color: rgba(255,255,255,0.14); }
+  .btn-light { background: var(--white); color: var(--ink); border-color: var(--paper-2); }
+
+  .hero {
+    min-height: 92svh;
+    color: var(--white);
+    background:
+      linear-gradient(90deg, rgba(39,43,51,0.96) 0%, rgba(39,43,51,0.82) 42%, rgba(39,43,51,0.28) 72%, rgba(39,43,51,0.12) 100%),
+      linear-gradient(0deg, rgba(39,43,51,0.88), rgba(39,43,51,0.08) 38%),
+      url("assets/truck.webp") center right / cover no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .utility {
+    border-bottom: 1px solid rgba(255,255,255,0.11);
+    color: var(--soft);
+    font-size: 0.86rem;
+  }
+
+  .utility .wrap {
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .utility strong { color: var(--white); font-weight: 700; }
+  .utility .right { display: flex; gap: 22px; align-items: center; }
+  .utility .mark { color: var(--orange); }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    background: rgba(39,43,51,0.76);
+    backdrop-filter: blur(16px);
+  }
+
+  .nav .wrap {
+    min-height: 82px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .brand {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 0.95;
+  }
+
+  .brand .alpha {
+    color: var(--orange);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 2.15rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.34);
+  }
+
+  .brand .sub {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255,255,255,0.22);
+    color: var(--white);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.27em;
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+  }
+
+  .links a {
+    color: rgba(255,255,255,0.82);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .links a:hover { color: var(--white); }
+  .nav-actions { display: flex; gap: 10px; }
+
+  .hero-main {
+    min-height: calc(86svh - 121px);
+    display: grid;
+    align-items: end;
+    padding: 58px 0 30px;
+  }
+
+  .hero-copy {
+    width: min(760px, 100%);
+    padding-bottom: 28px;
+  }
+
+  h1 {
+    margin-top: 22px;
+    font-size: clamp(3.35rem, 5.8vw, 5.3rem);
+    max-width: 13ch;
+  }
+
+  h1 span { color: var(--orange); }
+
+  .lead {
+    width: min(565px, 100%);
+    margin-top: 24px;
+    color: rgba(255,255,255,0.75);
+    font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .quick-order {
+    display: grid;
+    grid-template-columns: 1.1fr repeat(3, 1fr);
+    align-items: stretch;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(32,36,43,0.8);
+    box-shadow: var(--shadow);
+  }
+
+  .quick-order > div {
+    min-height: 94px;
+    padding: 18px 20px;
+    border-left: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .quick-order > div:first-child { border-left: 0; background: var(--orange); }
+
+  .quick-order .label {
+    display: block;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .quick-order strong {
+    display: block;
+    margin-top: 8px;
+    color: var(--white);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(1.35rem, 1.8vw, 1.8rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  .section {
+    padding: 88px 0;
+  }
+
+  .section-title {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 44px;
+    align-items: end;
+    margin-bottom: 38px;
+  }
+
+  .section-title h2 {
+    margin-top: 14px;
+    color: var(--ink);
+    font-size: clamp(2.7rem, 5vw, 4.7rem);
+  }
+
+  .section-title p {
+    color: var(--muted);
+    font-size: 1.04rem;
+  }
+
+  .workbench {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    border: 1px solid var(--paper-2);
+    background: var(--white);
+  }
+
+  .workbench .panel {
+    padding: clamp(28px, 4vw, 48px);
+    border-right: 1px solid var(--paper-2);
+  }
+
+  .workbench h3 {
+    color: var(--ink);
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
+
+  .workbench p { margin-top: 14px; color: var(--muted); }
+
+  .order-list {
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .order-list li {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 18px;
+    padding: 20px 0;
+    border-top: 1px solid var(--paper-2);
+  }
+
+  .order-list b {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    background: var(--ink);
+    color: var(--orange);
+    border-radius: 4px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.28rem;
+  }
+
+  .order-list strong {
+    display: block;
+    color: var(--ink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.35rem;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .order-list span { display: block; margin-top: 5px; color: var(--muted); }
+
+  .material-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .material-card {
+    min-height: 214px;
+    padding: 26px;
+    border-left: 1px solid var(--paper-2);
+    border-bottom: 1px solid var(--paper-2);
+    background: linear-gradient(180deg, #fff, #fbfaf7);
+  }
+
+  .material-card:nth-child(odd) { border-left: 0; }
+  .material-card:nth-last-child(-n+2) { border-bottom: 0; }
+
+  .material-card .spec {
+    color: var(--orange);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .material-card h4 {
+    margin-top: 10px;
+    color: var(--ink);
+    font-size: 1.46rem;
+  }
+
+  .material-card p { margin-top: 10px; color: var(--muted); font-size: 0.96rem; }
+
+  .dark {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .dark .section-title h2 { color: var(--white); }
+  .dark .section-title p { color: var(--soft); }
+
+  .proof {
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .proof-photo {
+    min-height: 470px;
+    background: url("assets/truck.webp") center / cover no-repeat;
+    border: 1px solid rgba(255,255,255,0.14);
+    position: relative;
+  }
+
+  .proof-photo::after {
+    content: "Mobile fabrication truck";
+    position: absolute;
+    left: 22px;
+    bottom: 22px;
+    padding: 9px 12px;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 4px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .proof-stack {
+    display: grid;
+    gap: 14px;
+  }
+
+  .proof-item {
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.13);
+    border-left: 4px solid var(--orange);
+    background: var(--ink-2);
+  }
+
+  .proof-item strong {
+    display: block;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.45rem;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .proof-item span {
+    display: block;
+    margin-top: 8px;
+    color: var(--soft);
+  }
+
+  .colors {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 12px;
+  }
+
+  .swatch {
+    min-width: 0;
+    background: var(--white);
+    border: 1px solid var(--paper-2);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .chip { height: 72px; box-shadow: inset 0 -14px 24px rgba(0,0,0,0.11); }
+  .swatch span {
+    display: block;
+    padding: 10px 8px 12px;
+    color: var(--muted);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .quote {
+    padding: 86px 0;
+    background:
+      linear-gradient(90deg, rgba(239,110,43,0.96), rgba(239,110,43,0.88)),
+      url("assets/truck.webp") center / cover no-repeat;
+    color: var(--white);
+  }
+
+  .quote .wrap {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .quote h2 {
+    max-width: 760px;
+    font-size: clamp(2.7rem, 5vw, 5rem);
+  }
+
+  .quote p {
+    max-width: 580px;
+    margin-top: 14px;
+    color: rgba(255,255,255,0.86);
+    font-size: 1.08rem;
+  }
+
+  .footer {
+    background: #20242b;
+    color: var(--soft);
+    padding: 34px 0;
+  }
+
+  .footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 980px) {
+    .utility { display: none; }
+    .nav .wrap { grid-template-columns: 1fr; gap: 16px; padding: 18px 0; }
+    .links { order: 3; justify-content: flex-start; overflow-x: auto; padding-bottom: 4px; }
+    .nav-actions { justify-content: flex-start; flex-wrap: wrap; }
+    .hero { min-height: auto; }
+    .hero-main { padding: 56px 0 26px; min-height: 680px; }
+    .quick-order, .section-title, .workbench, .proof, .quote .wrap { grid-template-columns: 1fr; }
+    .quick-order > div { border-left: 0; border-top: 1px solid rgba(255,255,255,0.12); }
+    .quick-order > div:first-child { border-top: 0; }
+    .workbench .panel { border-right: 0; border-bottom: 1px solid var(--paper-2); }
+    .colors { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .wrap, .compact { width: min(100% - 30px, var(--max)); }
+    .nav .wrap { grid-template-columns: 1fr; padding: 14px 0; }
+    .links { display: none; }
+    .nav-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      gap: 8px;
+    }
+    .nav .btn {
+      width: 100%;
+      min-height: 44px;
+      padding: 0 8px;
+      font-size: 0.9rem;
+    }
+    .hero {
+      background:
+        linear-gradient(180deg, rgba(39,43,51,0.98) 0%, rgba(39,43,51,0.88) 48%, rgba(39,43,51,0.58) 100%),
+        url("assets/truck.webp") center bottom / cover no-repeat;
+    }
+    .hero-main { min-height: auto; padding-top: 40px; }
+    h1 { font-size: clamp(3rem, 13vw, 4rem); }
+    .btn { width: 100%; }
+    .hero-actions .btn { width: 100%; }
+    .quick-order {
+      grid-template-columns: 1fr 1fr;
+      margin-top: 4px;
+    }
+    .quick-order > div,
+    .quick-order > div:first-child {
+      min-height: 102px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-left: 1px solid rgba(255,255,255,0.12);
+    }
+    .quick-order > div:nth-child(odd) { border-left: 0; }
+    .quick-order > div:first-child,
+    .quick-order > div:nth-child(2) { border-top: 0; }
+    .material-grid { grid-template-columns: 1fr; }
+    .material-card, .material-card:nth-child(odd) { border-left: 0; border-bottom: 1px solid var(--paper-2); }
+    .material-card:last-child { border-bottom: 0; }
+    .proof-photo { min-height: 320px; }
+    .quote { padding: 64px 0; }
+  }
+</style>
+</head>
+<body>
+  <section class="hero" id="top">
+    <div class="utility">
+      <div class="wrap">
+        <span>Family-operated <span class="mark">/</span> On-site fabrication <span class="mark">/</span> Same-day and next-day delivery</span>
+        <span class="right"><a href="mailto:info@alphagutterco.com">info@alphagutterco.com</a><a href="tel:+15084965173"><strong>508-496-5173</strong></a></span>
+      </div>
+    </div>
+
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="#top" aria-label="Alpha Seamless Gutter home">
+          <span class="alpha">ALPHA</span>
+          <span class="sub">SEAMLESS GUTTER LLC</span>
+        </a>
+        <nav class="links" aria-label="Main navigation">
+          <a href="#materials">Materials</a>
+          <a href="#process">Cut and Drop</a>
+          <a href="#colors">Colors</a>
+          <a href="#quote">Quote</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-dark" href="tel:+15084965173">Call 508-496-5173</a>
+          <a class="btn btn-primary" href="#quote">Get a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap hero-main">
+      <div>
+        <div class="hero-copy">
+          <span class="eyebrow">Seamless gutter supply</span>
+          <h1>Cut to length. <span>Dropped on site.</span></h1>
+          <p class="lead">Mobile 5 inch and 6 inch K-style gutter fabrication for contractors, roofers, siding crews, and homeowners across Eastern Massachusetts.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#quote">Request a Quote</a>
+            <a class="btn btn-dark" href="#process">See How It Works</a>
+          </div>
+        </div>
+
+        <div class="quick-order" aria-label="Key service highlights">
+          <div>
+            <span class="label">Turnaround</span>
+            <strong>Same-day before noon</strong>
+          </div>
+          <div>
+            <span class="label">Profiles</span>
+            <strong>5 inch and 6 inch</strong>
+          </div>
+          <div>
+            <span class="label">Built for</span>
+            <strong>Crews and job sites</strong>
+          </div>
+          <div>
+            <span class="label">Coverage</span>
+            <strong>Southcoast to Boston</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="materials">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <span class="eyebrow">What we supply</span>
+            <h2>Everything your crew needs, ready to hang.</h2>
+          </div>
+          <p>This mockup moves the site away from generic blocks and into a sharper contractor-first layout: clear ordering, material clarity, job-site proof, and direct conversion paths.</p>
+        </div>
+
+        <div class="workbench">
+          <div class="panel" id="process">
+            <h3>The order flow is simple.</h3>
+            <p>Send measurements, color, profile, and accessory counts. Alpha fabricates the material and drops it where the work is happening.</p>
+            <ol class="order-list">
+              <li><b>01</b><span><strong>Send the run sheet</strong><span>Lengths, profile, color, downspouts, elbows, caps, hangers, and delivery location.</span></span></li>
+              <li><b>02</b><span><strong>Fabricated on site</strong><span>The truck-mounted machine rolls seamless gutter to exact lengths with fewer field seams.</span></span></li>
+              <li><b>03</b><span><strong>Dropped at the job</strong><span>Same-day when you call before noon, next-day standard for regular crew planning.</span></span></li>
+            </ol>
+          </div>
+
+          <div class="material-grid">
+            <article class="material-card">
+              <span class="spec">5 inch and 6 inch aluminum</span>
+              <h4>Seamless K-style gutter</h4>
+              <p>Continuous runs cut to your measurements so your crew can install without standard-length compromises.</p>
+            </article>
+            <article class="material-card">
+              <span class="spec">2x3 and 3x4</span>
+              <h4>Downspouts</h4>
+              <p>Matching downspout profiles, cut to order and bundled with the rest of the material package.</p>
+            </article>
+            <article class="material-card">
+              <span class="spec">A / B / 45 degree</span>
+              <h4>Elbows and miters</h4>
+              <p>Inside and outside corners plus common elbow options for cleaner routing on every elevation.</p>
+            </article>
+            <article class="material-card">
+              <span class="spec">Install hardware</span>
+              <h4>Caps, outlets and hangers</h4>
+              <p>Small parts included in the same order so crews are not chasing supplies during the install.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <span class="eyebrow">Built for job sites</span>
+            <h2>Less warehouse runaround. More install time.</h2>
+          </div>
+          <p>The visual tone stays Alpha: tough, direct, orange-on-charcoal. The refinement is in spacing, contrast, photography, and a clearer path from problem to quote.</p>
+        </div>
+
+        <div class="proof">
+          <div class="proof-photo" role="img" aria-label="Alpha Seamless Gutter truck"></div>
+          <div class="proof-stack">
+            <div class="proof-item"><strong>Materials only</strong><span>A supplier for contractors, not a competitor for installation work.</span></div>
+            <div class="proof-item"><strong>Job-ready bundles</strong><span>Material is labeled, grouped, and delivered with the accessories that match the order.</span></div>
+            <div class="proof-item"><strong>Eastern MA service</strong><span>Southcoast, Metro West, Greater Boston, and nearby towns on request.</span></div>
+            <div class="proof-item"><strong>Phone-first quoting</strong><span>Prominent call paths keep the site practical for crews working from the field.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="colors">
+      <div class="compact">
+        <div class="section-title">
+          <div>
+            <span class="eyebrow">Color options</span>
+            <h2>Common finishes, cleaner presentation.</h2>
+          </div>
+          <p>The color grid is simplified into larger swatches that scan quickly and feel more like a professional material selector.</p>
+        </div>
+
+        <div class="colors">
+          <div class="swatch"><div class="chip" style="background:#f3f1ea"></div><span>White</span></div>
+          <div class="swatch"><div class="chip" style="background:#e7ddc5"></div><span>Almond</span></div>
+          <div class="swatch"><div class="chip" style="background:#d8c7a3"></div><span>Sandstone</span></div>
+          <div class="swatch"><div class="chip" style="background:#c6c8c6"></div><span>Pearl Gray</span></div>
+          <div class="swatch"><div class="chip" style="background:#4c4f53"></div><span>Charcoal</span></div>
+          <div class="swatch"><div class="chip" style="background:#1c1c1e"></div><span>Black</span></div>
+          <div class="swatch"><div class="chip" style="background:#6b5740"></div><span>Musket Brown</span></div>
+          <div class="swatch"><div class="chip" style="background:#2f3c2e"></div><span>Hunter Green</span></div>
+          <div class="swatch"><div class="chip" style="background:#b8442f"></div><span>Brick Red</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote" id="quote">
+      <div class="wrap">
+        <div>
+          <h2>Send the measurements. We will cut it and drop it.</h2>
+          <p>Request a quote for custom-length seamless gutter, downspouts, elbows, miters, hangers, and delivery across Eastern Massachusetts.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="tel:+15084965173">Call 508-496-5173</a>
+          <a class="btn btn-dark" href="mailto:info@alphagutterco.com">Email Order Details</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Alpha Seamless Gutter home">
+        <span class="alpha">ALPHA</span>
+        <span class="sub">SEAMLESS GUTTER LLC</span>
+      </a>
+      <span>Custom cut and drop seamless gutter supply across Eastern Massachusetts.</span>
+    </div>
+  </footer>
+</body>
+</html>
