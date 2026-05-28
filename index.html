@@ -319,9 +319,41 @@
 
   /* ---------- WORK GALLERY ---------- */
   #work{background:var(--paper);}
-  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-  .gallery .photo-slot{aspect-ratio:4/3;}
-  @media(max-width:880px){.gallery{grid-template-columns:1fr;}}
+  .gallery-carousel{position:relative;max-width:980px;margin:0 auto;}
+  .gallery-viewport{
+    overflow:hidden;background:#fff;border:1px solid var(--paper-2);
+    box-shadow:0 16px 34px rgba(20,23,27,.12);touch-action:pan-y;
+  }
+  .gallery-track{display:flex;transition:transform .38s ease;will-change:transform;}
+  .gallery-slide{flex:0 0 100%;padding:0;}
+  .gallery-slide .photo-slot{aspect-ratio:16/10;border:none;}
+  .gallery-controls{
+    position:absolute;left:16px;right:16px;top:50%;z-index:5;
+    display:flex;justify-content:space-between;pointer-events:none;
+    transform:translateY(-50%);
+  }
+  .gallery-btn{
+    pointer-events:auto;width:48px;height:48px;border:none;border-radius:50%;
+    background:rgba(39,43,51,.88);color:#fff;display:flex;align-items:center;
+    justify-content:center;font-size:2rem;line-height:1;cursor:pointer;
+    box-shadow:0 8px 18px rgba(20,23,27,.22);transition:background .18s ease,transform .18s ease;
+  }
+  .gallery-btn:hover{background:var(--orange);transform:scale(1.04);}
+  .gallery-btn:focus-visible{outline:3px solid rgba(239,110,43,.38);outline-offset:3px;}
+  .gallery-dots{display:flex;justify-content:center;gap:10px;margin-top:18px;}
+  .gallery-dot{
+    width:11px;height:11px;border-radius:999px;border:1px solid var(--orange);
+    background:transparent;cursor:pointer;padding:0;transition:width .18s ease,background .18s ease;
+  }
+  .gallery-dot.active{width:28px;background:var(--orange);}
+  .gallery-dot:focus-visible{outline:3px solid rgba(239,110,43,.32);outline-offset:3px;}
+  @media(max-width:880px){
+    .gallery-carousel{max-width:100%;}
+    .gallery-slide .photo-slot{aspect-ratio:4/3;}
+    .gallery-controls{left:10px;right:10px;}
+    .gallery-btn{width:42px;height:42px;font-size:1.65rem;}
+    .gallery-dots{margin-top:14px;}
+  }
 
   /* ---------- WHY / WHO ---------- */
   #why{background:#fff;}
@@ -676,32 +708,51 @@
       <h2>See The Job-Ready Difference</h2>
       <p class="intro">A look at our mobile gutter machine, on-site fabrication, delivery truck, and finished residential roofline work.</p>
     </div>
-    <div class="gallery">
-      <!-- PHOTO 1: Alpha mobile gutter machine close-up -->
-      <div class="photo-slot reveal">
-        <img src="assets/gallery-machine-closeup.webp" alt="Alpha Seamless Gutter mobile machine with aluminum gutter coil inside the truck">
-        <div class="ps-cap">Mobile Gutter Machine</div>
+    <div class="gallery-carousel reveal" aria-label="Alpha Seamless Gutter photo gallery">
+      <div class="gallery-viewport">
+        <div class="gallery-track">
+          <!-- PHOTO 1: Alpha mobile gutter machine close-up -->
+          <div class="gallery-slide">
+            <div class="photo-slot">
+              <img src="assets/gallery-machine-closeup.webp" alt="Alpha Seamless Gutter mobile machine with aluminum gutter coil inside the truck">
+              <div class="ps-cap">Mobile Gutter Machine</div>
+            </div>
+          </div>
+          <!-- PHOTO 2: Alpha machine running seamless gutter -->
+          <div class="gallery-slide">
+            <div class="photo-slot">
+              <img src="assets/gallery-machine-running.webp" alt="Seamless gutter being fabricated from the back of the Alpha box truck">
+              <div class="ps-cap">Cut On Site</div>
+            </div>
+          </div>
+          <!-- PHOTO 3: Alpha gutter machine detail -->
+          <div class="gallery-slide">
+            <div class="photo-slot">
+              <img src="assets/gallery-machine-detail.webp" alt="Close-up of Alpha Seamless Gutter machine controls and aluminum coil inside the truck">
+              <div class="ps-cap">Machine Detail</div>
+            </div>
+          </div>
+          <!-- PHOTO 4: Alpha box truck fabricating gutter -->
+          <div class="gallery-slide">
+            <div class="photo-slot">
+              <img src="assets/gallery-alpha-truck-work.webp" alt="Alpha Seamless Gutter box truck fabricating a long seamless gutter run">
+              <div class="ps-cap">Alpha Box Truck</div>
+            </div>
+          </div>
+          <!-- PHOTO 5: Finished residential gutter roofline -->
+          <div class="gallery-slide">
+            <div class="photo-slot">
+              <img src="assets/gallery-finished-roofline.webp" alt="Finished residential roofline with clean white seamless gutters">
+              <div class="ps-cap">Finished Roofline</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- PHOTO 2: Alpha machine running seamless gutter -->
-      <div class="photo-slot reveal">
-        <img src="assets/gallery-machine-running.webp" alt="Seamless gutter being fabricated from the back of the Alpha box truck">
-        <div class="ps-cap">Cut On Site</div>
+      <div class="gallery-controls" aria-hidden="false">
+        <button class="gallery-btn gallery-prev" type="button" aria-label="Previous photo">&lsaquo;</button>
+        <button class="gallery-btn gallery-next" type="button" aria-label="Next photo">&rsaquo;</button>
       </div>
-      <!-- PHOTO 3: Alpha gutter machine detail -->
-      <div class="photo-slot reveal">
-        <img src="assets/gallery-machine-detail.webp" alt="Close-up of Alpha Seamless Gutter machine controls and aluminum coil inside the truck">
-        <div class="ps-cap">Machine Detail</div>
-      </div>
-      <!-- PHOTO 4: Alpha box truck fabricating gutter -->
-      <div class="photo-slot reveal">
-        <img src="assets/gallery-alpha-truck-work.webp" alt="Alpha Seamless Gutter box truck fabricating a long seamless gutter run">
-        <div class="ps-cap">Alpha Box Truck</div>
-      </div>
-      <!-- PHOTO 5: Finished residential gutter roofline -->
-      <div class="photo-slot reveal">
-        <img src="assets/gallery-finished-roofline.webp" alt="Finished residential roofline with clean white seamless gutters">
-        <div class="ps-cap">Finished Roofline</div>
-      </div>
+      <div class="gallery-dots" aria-label="Choose gallery photo"></div>
     </div>
   </div>
 </section>
@@ -1026,6 +1077,59 @@
     el.style.transitionDelay = (Math.min(i,4)*0.06)+'s';
     io.observe(el);
   });
+
+  var gallery = document.querySelector('.gallery-carousel');
+  if(gallery){
+    var track = gallery.querySelector('.gallery-track');
+    var slides = Array.prototype.slice.call(gallery.querySelectorAll('.gallery-slide'));
+    var prev = gallery.querySelector('.gallery-prev');
+    var next = gallery.querySelector('.gallery-next');
+    var dotsWrap = gallery.querySelector('.gallery-dots');
+    var galleryIndex = 0;
+    var touchStartX = 0;
+    var touchDeltaX = 0;
+
+    slides.forEach(function(_, i){
+      var dot = document.createElement('button');
+      dot.className = 'gallery-dot';
+      dot.type = 'button';
+      dot.setAttribute('aria-label', 'Show photo ' + (i + 1));
+      dot.addEventListener('click', function(){ goGallery(i); });
+      dotsWrap.appendChild(dot);
+    });
+
+    function goGallery(i){
+      galleryIndex = (i + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (galleryIndex * 100) + '%)';
+      slides.forEach(function(slide, n){
+        slide.setAttribute('aria-hidden', n === galleryIndex ? 'false' : 'true');
+      });
+      Array.prototype.slice.call(dotsWrap.children).forEach(function(dot, n){
+        dot.classList.toggle('active', n === galleryIndex);
+        dot.setAttribute('aria-current', n === galleryIndex ? 'true' : 'false');
+      });
+    }
+
+    prev.addEventListener('click', function(){ goGallery(galleryIndex - 1); });
+    next.addEventListener('click', function(){ goGallery(galleryIndex + 1); });
+    gallery.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowLeft'){ goGallery(galleryIndex - 1); }
+      if(e.key === 'ArrowRight'){ goGallery(galleryIndex + 1); }
+    });
+    gallery.addEventListener('touchstart', function(e){
+      touchStartX = e.touches[0].clientX;
+      touchDeltaX = 0;
+    }, {passive:true});
+    gallery.addEventListener('touchmove', function(e){
+      touchDeltaX = e.touches[0].clientX - touchStartX;
+    }, {passive:true});
+    gallery.addEventListener('touchend', function(){
+      if(Math.abs(touchDeltaX) > 45){
+        goGallery(galleryIndex + (touchDeltaX < 0 ? 1 : -1));
+      }
+    });
+    goGallery(0);
+  }
 
   // ===== QUOTE FORM =====
   // To use Formspree instead of email, paste your endpoint here (e.g. "https://formspree.io/f/abcdwxyz")
