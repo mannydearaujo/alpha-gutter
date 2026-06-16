@@ -9,6 +9,7 @@
   gtag("js", new Date());
   gtag("config", "G-NPKB1VZSNB");
 </script>
+<script defer src="/site-tracking.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alpha Seamless Gutter, LLC | Custom Cut &amp; Drop Seamless Gutters — Same-Day Delivery</title>
@@ -184,6 +185,32 @@
   .hero h1 .hl{color:var(--orange);text-shadow:3px 3px 0 rgba(0,0,0,.35);}
   .hero .lead{font-size:1.16rem;color:var(--on-dark-soft);max-width:34ch;margin-top:20px;}
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;}
+  .hero-proof{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+    margin-top:26px;
+  }
+  .hero-proof .proof-item{
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--steel-line);
+    border-left:4px solid var(--orange);
+    padding:14px 16px;
+  }
+  .hero-proof .proof-item strong{
+    display:block;
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1.05rem;
+    color:#fff;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+  }
+  .hero-proof .proof-item span{
+    display:block;
+    margin-top:4px;
+    font-size:.92rem;
+    color:var(--on-dark-soft);
+  }
   .hero-meta{
     display:flex;gap:26px;margin-top:34px;flex-wrap:wrap;
     border-top:1px solid var(--steel-line);padding-top:22px;
@@ -226,6 +253,7 @@
     .hero .wrap{grid-template-columns:1fr;gap:34px;padding:46px 26px 56px;}
     .hero-photo{order:-1;}
     .hero .lead{max-width:46ch;}
+    .hero-proof{grid-template-columns:1fr;}
   }
 
   /* ---------- TRUST STRIP ---------- */
@@ -543,13 +571,13 @@
       <a class="navlink" href="#colors">Colors</a>
       <a class="navlink" href="#area">Service Area</a>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="tel:+15084965173">Call Now</a>
-        <a class="btn btn-orange" href="#quote">Get a Quote</a>
+        <a class="btn btn-ghost" href="tel:+15084965173" data-track="phone_tap" data-track-label="nav call">Call Now</a>
+        <a class="btn btn-orange" href="#quote" data-track="quote_request_click" data-track-label="nav quote">Get a Quote</a>
       </div>
     </nav>
     <div class="header-cta-desktop nav-cta">
-      <a class="btn btn-ghost" href="tel:+15084965173">&#9742; 508-496-5173</a>
-      <a class="btn btn-orange" href="#quote">Get a Quote</a>
+      <a class="btn btn-ghost" href="tel:+15084965173" data-track="phone_tap" data-track-label="header phone">&#9742; 508-496-5173</a>
+      <a class="btn btn-orange" href="#quote" data-track="quote_request_click" data-track-label="header quote">Get a Quote</a>
     </div>
     <button class="hamburger" id="burger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -563,10 +591,24 @@
     <div class="hero-copy reveal">
       <div class="eyebrow">Seamless Gutter Supply &middot; Same-Day Delivery</div>
       <h1>Custom Gutters,<br><span class="hl">Cut &amp; Dropped</span><br>At Your Job.</h1>
-      <p class="lead">We bring the machine to you. Seamless 5&Prime; &amp; 6&Prime; K-style gutter fabricated to your exact lengths &mdash; with same-day and next-day delivery across Eastern Massachusetts.</p>
+      <p class="lead">We bring the machine to you. Seamless 5&Prime; and 6&Prime; K-style gutter fabricated to your exact lengths with same-day and next-day delivery across Southcoast MA, Metro West, and Greater Boston. Send the lengths, get a real answer fast, and keep the crew moving.</p>
       <div class="hero-actions">
-        <a class="btn btn-orange btn-lg" href="#quote">Request a Quote</a>
-        <a class="btn btn-ghost btn-lg" href="tel:+15084965173">&#9742; 508-496-5173</a>
+        <a class="btn btn-orange btn-lg" href="tel:+15084965173" data-track="phone_tap" data-track-label="hero phone">&#9742; 508-496-5173</a>
+        <a class="btn btn-ghost btn-lg" href="#quote" data-track="quote_request_click" data-track-label="hero quote">Request a Quote</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <strong>Same-Day Answers</strong>
+          <span>Phone-first quoting for active jobs and tight schedules.</span>
+        </div>
+        <div class="proof-item">
+          <strong>Job-Site Fabrication</strong>
+          <span>Exact lengths cut where the work happens, not at a distant yard.</span>
+        </div>
+        <div class="proof-item">
+          <strong>3 Service Regions</strong>
+          <span>Southcoast, Metro West, and Greater Boston coverage.</span>
+        </div>
       </div>
       <div class="hero-meta">
         <div><span class="n acc">Same Day</span><span class="l">&amp; Next-Day Delivery</span></div>
@@ -817,7 +859,7 @@
           <strong>Order By Phone, Text Or Form</strong>
           <p>Send your job details however is easiest &mdash; we&rsquo;ll confirm pricing and a delivery time fast.</p>
         </div>
-        <a class="btn btn-orange" href="#quote" style="margin-top:24px;">Request a Quote</a>
+        <a class="btn btn-orange" href="#quote" style="margin-top:24px;" data-track="quote_request_click" data-track-label="who box quote">Request a Quote</a>
       </div>
     </div>
   </div>
@@ -900,7 +942,7 @@
       <div class="area-note reveal">
         <p>Don&rsquo;t see your town? If it&rsquo;s within range, we&rsquo;ll be there.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a class="btn btn-orange" href="tel:+15084965173">Call To Confirm &#9742;</a>
+          <a class="btn btn-orange" href="tel:+15084965173" data-track="phone_tap" data-track-label="service area confirm call">Call To Confirm &#9742;</a>
           <a class="btn btn-ghost" href="/service-area">Browse All Service Areas</a>
         </div>
       </div>
@@ -916,20 +958,20 @@
         <div class="sec-head">
           <div class="eyebrow">07 &mdash; Get Started</div>
           <h2>Request A Quote</h2>
-          <p class="intro" style="color:var(--on-dark-soft);">Fastest way to get a number is to call or text your job details. Or send the form and we&rsquo;ll get right back to you.</p>
+          <p class="intro" style="color:var(--on-dark-soft);">Fastest way to get a number is to call or text your job details. Send the form if you want us to review the scope, price it, and line up delivery after we look it over.</p>
         </div>
         <div class="cline">
           <div class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
             <div class="cl">Call or Text</div>
-            <a class="cv" href="tel:+15084965173">508-496-5173</a>
+            <a class="cv" href="tel:+15084965173" data-track="phone_tap" data-track-label="quote section phone">508-496-5173</a>
           </div>
         </div>
         <div class="cline">
           <div class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
           <div>
             <div class="cl">Email</div>
-            <a class="cv sm" href="mailto:info@alphagutterco.com">info@alphagutterco.com</a>
+            <a class="cv sm" href="mailto:info@alphagutterco.com" data-track="email_click" data-track-label="quote section email">info@alphagutterco.com</a>
           </div>
         </div>
         <div class="cline">
@@ -947,8 +989,8 @@
           </div>
         </div>
         <div class="contact-actions">
-          <a class="btn btn-orange btn-lg" href="tel:+15084965173">&#9742; Call Now</a>
-          <a class="btn btn-ghost btn-lg" href="sms:+15084965173">&#9993; Text Us</a>
+          <a class="btn btn-orange btn-lg" href="tel:+15084965173" data-track="phone_tap" data-track-label="quote section call now">&#9742; Call Now</a>
+          <a class="btn btn-ghost btn-lg" href="sms:+15084965173" data-track="sms_tap" data-track-label="quote section text">&#9993; Text Us</a>
         </div>
       </div>
 
@@ -1001,7 +1043,7 @@
             <label>Job Details &amp; Timeline</label>
             <textarea id="f-details" placeholder="Approx. linear feet, color, downspouts, accessories — and when you need it delivered..."></textarea>
           </div>
-          <button class="btn btn-orange btn-lg" id="f-submit">Send Quote Request</button>
+          <button class="btn btn-orange btn-lg" id="f-submit" data-track="quote_request_click" data-track-label="quote form submit button">Send Quote Request</button>
           <p class="form-note">We typically respond the same business day.</p>
           <div class="form-msg" id="f-msg">Thanks &mdash; your request is on its way. We&rsquo;ll be in touch shortly. Need it fast? Call <b>508-496-5173</b>.</div>
         </div>
@@ -1055,9 +1097,9 @@
 
 <!-- ============ MOBILE CALL BAR ============ -->
 <div class="mobile-bar">
-  <a class="call" href="tel:+15084965173">&#9742; Call</a>
-  <a class="text" href="sms:+15084965173">&#9993; Text</a>
-  <a class="text" href="#quote">&#9998; Quote</a>
+  <a class="call" href="tel:+15084965173" data-track="phone_tap" data-track-label="mobile call">&#9742; Call</a>
+  <a class="text" href="sms:+15084965173" data-track="sms_tap" data-track-label="mobile text">&#9993; Text</a>
+  <a class="text" href="#quote" data-track="quote_request_click" data-track-label="mobile quote">&#9998; Quote</a>
 </div>
 
 <script>
@@ -1181,6 +1223,7 @@
   }
 
   function showSent(){
+    if(window.alphaTrackLead){ window.alphaTrackLead('quote_request_submit', 'quick quote request'); }
     document.getElementById('f-msg').style.display = 'block';
     document.getElementById('f-submit').textContent = 'Request Sent ✓';
   }
