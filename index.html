@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NPKB1VZSNB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-NPKB1VZSNB");
-</script>
 <script defer src="/site-tracking.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +17,9 @@
 <meta property="og:image" content="https://alphagutterco.com/assets/truck.webp">
 <meta property="og:url" content="https://alphagutterco.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23272b33'/%3E%3Ctext x='32' y='48' font-family='Arial Black,Arial' font-size='46' font-weight='900' fill='%23ef6e2b' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
-<link rel="preload" as="image" href="assets/truck.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/truck-960.webp"
+      imagesrcset="assets/truck-480.webp 480w, assets/truck-720.webp 720w, assets/truck-960.webp 960w, assets/truck-1200.webp 1200w"
+      imagesizes="(max-width: 980px) calc(100vw - 52px), 50vw" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -664,6 +658,11 @@
   /* reveal */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease;}
   .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
+    .reveal{opacity:1;transform:none;}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
@@ -703,7 +702,7 @@
       <a class="btn btn-ghost" href="tel:+15084965173" data-track="phone_tap" data-track-label="header phone">&#9742; 508-496-5173</a>
       <a class="btn btn-orange" href="#quote" data-track="quote_request_click" data-track-label="header quote">Get a Quote</a>
     </div>
-    <button class="hamburger" id="burger" aria-label="Menu">
+    <button class="hamburger" id="burger" aria-label="Open menu" aria-controls="nav" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -714,7 +713,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="top" style="padding:0;">
   <div class="wrap">
-    <div class="hero-copy reveal">
+    <div class="hero-copy">
       <div class="eyebrow">Seamless Gutter Supply &middot; Same-Day Delivery</div>
       <h1>Custom Gutters,<br><span class="hl">Cut &amp; Dropped</span><br>At Your Job.</h1>
       <p class="lead">We bring the machine to you. Seamless 5&Prime; and 6&Prime; K-style gutter fabricated to your exact lengths with same-day and next-day delivery across Southcoast MA, Metro West, and Greater Boston. Send the lengths, get a real answer fast, and keep the crew moving.</p>
@@ -743,8 +742,11 @@
       </div>
     </div>
     <!-- HERO PHOTO — the Alpha Seamless Gutter truck -->
-    <div class="photo-slot hero-photo reveal">
-      <img src="assets/truck.webp" alt="Alpha Seamless Gutter, LLC mobile fabrication truck" width="1400" height="941" fetchpriority="high" decoding="async">
+    <div class="photo-slot hero-photo">
+      <img src="assets/truck-960.webp"
+           srcset="assets/truck-480.webp 480w, assets/truck-720.webp 720w, assets/truck-960.webp 960w, assets/truck-1200.webp 1200w"
+           sizes="(max-width: 980px) calc(100vw - 52px), 50vw"
+           alt="Alpha Seamless Gutter, LLC mobile fabrication truck" width="1400" height="941" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -912,35 +914,50 @@
           <!-- PHOTO 1: Alpha mobile gutter machine close-up -->
           <div class="gallery-slide">
             <div class="photo-slot">
-              <img src="assets/gallery-machine-closeup.webp" alt="Alpha Seamless Gutter mobile machine with aluminum gutter coil inside the truck" width="960" height="720" loading="lazy" decoding="async">
+              <img src="assets/gallery-machine-closeup-960.webp"
+                   srcset="assets/gallery-machine-closeup-480.webp 480w, assets/gallery-machine-closeup-720.webp 720w, assets/gallery-machine-closeup-960.webp 960w"
+                   sizes="(max-width: 872px) calc(100vw - 52px), 820px"
+                   alt="Alpha Seamless Gutter mobile machine with aluminum gutter coil inside the truck" width="960" height="720" loading="lazy" decoding="async">
               <div class="ps-cap">Mobile Gutter Machine</div>
             </div>
           </div>
           <!-- PHOTO 2: Alpha machine running seamless gutter -->
           <div class="gallery-slide">
             <div class="photo-slot">
-              <img src="assets/gallery-machine-running.webp" alt="Seamless gutter being fabricated from the back of the Alpha box truck" width="960" height="720" loading="lazy" decoding="async">
+              <img src="assets/gallery-machine-running-960.webp"
+                   srcset="assets/gallery-machine-running-480.webp 480w, assets/gallery-machine-running-720.webp 720w, assets/gallery-machine-running-960.webp 960w"
+                   sizes="(max-width: 872px) calc(100vw - 52px), 820px"
+                   alt="Seamless gutter being fabricated from the back of the Alpha box truck" width="960" height="720" loading="lazy" decoding="async">
               <div class="ps-cap">Cut On Site</div>
             </div>
           </div>
           <!-- PHOTO 3: Alpha gutter machine detail -->
           <div class="gallery-slide">
             <div class="photo-slot">
-              <img src="assets/gallery-machine-detail.webp" alt="Close-up of Alpha Seamless Gutter machine controls and aluminum coil inside the truck" width="960" height="720" loading="lazy" decoding="async">
+              <img src="assets/gallery-machine-detail-960.webp"
+                   srcset="assets/gallery-machine-detail-480.webp 480w, assets/gallery-machine-detail-720.webp 720w, assets/gallery-machine-detail-960.webp 960w"
+                   sizes="(max-width: 872px) calc(100vw - 52px), 820px"
+                   alt="Close-up of Alpha Seamless Gutter machine controls and aluminum coil inside the truck" width="960" height="720" loading="lazy" decoding="async">
               <div class="ps-cap">Machine Detail</div>
             </div>
           </div>
           <!-- PHOTO 4: Alpha box truck fabricating gutter -->
           <div class="gallery-slide">
             <div class="photo-slot">
-              <img src="assets/gallery-alpha-truck-work.webp" alt="Alpha Seamless Gutter box truck fabricating a long seamless gutter run" width="960" height="720" loading="lazy" decoding="async">
+              <img src="assets/gallery-alpha-truck-work-960.webp"
+                   srcset="assets/gallery-alpha-truck-work-480.webp 480w, assets/gallery-alpha-truck-work-720.webp 720w, assets/gallery-alpha-truck-work-960.webp 960w"
+                   sizes="(max-width: 872px) calc(100vw - 52px), 820px"
+                   alt="Alpha Seamless Gutter box truck fabricating a long seamless gutter run" width="960" height="720" loading="lazy" decoding="async">
               <div class="ps-cap">Alpha Box Truck</div>
             </div>
           </div>
           <!-- PHOTO 5: Finished residential gutter roofline -->
           <div class="gallery-slide">
             <div class="photo-slot">
-              <img src="assets/gallery-finished-roofline.webp" alt="Finished residential roofline with clean white seamless gutters" width="720" height="540" loading="lazy" decoding="async">
+              <img src="assets/gallery-finished-roofline-720.webp"
+                   srcset="assets/gallery-finished-roofline-480.webp 480w, assets/gallery-finished-roofline-720.webp 720w"
+                   sizes="(max-width: 872px) calc(100vw - 52px), 820px"
+                   alt="Finished residential roofline with clean white seamless gutters" width="720" height="540" loading="lazy" decoding="async">
               <div class="ps-cap">Finished Roofline</div>
             </div>
           </div>
@@ -1295,9 +1312,17 @@
 
   var burger = document.getElementById('burger');
   var nav = document.getElementById('nav');
-  burger.addEventListener('click', function(){ nav.classList.toggle('open'); });
+  burger.addEventListener('click', function(){
+    var isOpen = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
   nav.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ nav.classList.remove('open'); });
+    a.addEventListener('click', function(){
+      nav.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open menu');
+    });
   });
 
   var io = new IntersectionObserver(function(entries){

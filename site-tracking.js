@@ -6,12 +6,30 @@
     window.gtag = function gtag() {
       window.dataLayer.push(arguments);
     };
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`;
-    document.head.appendChild(script);
     window.gtag("js", new Date());
     window.gtag("config", MEASUREMENT_ID);
+
+    const loadAnalytics = () => {
+      if (document.querySelector(`script[src*="${MEASUREMENT_ID}"]`)) return;
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`;
+      document.head.appendChild(script);
+    };
+
+    const scheduleAnalytics = () => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(loadAnalytics, { timeout: 2000 });
+      } else {
+        window.setTimeout(loadAnalytics, 800);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      scheduleAnalytics();
+    } else {
+      window.addEventListener("load", scheduleAnalytics, { once: true });
+    }
   }
 
   window.alphaTrackLead = function alphaTrackLead(eventName, label, extra = {}) {
