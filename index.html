@@ -25,6 +25,7 @@
 <meta property="og:image" content="https://alphagutterco.com/assets/truck.webp">
 <meta property="og:url" content="https://alphagutterco.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23272b33'/%3E%3Ctext x='32' y='48' font-family='Arial Black,Arial' font-size='46' font-weight='900' fill='%23ef6e2b' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/truck.webp" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -38,10 +39,31 @@
   "description": "Mobile seamless gutter supplier offering on-site cut and drop fabrication of 5-inch and 6-inch K-style aluminum gutter for contractors across Eastern Massachusetts.",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "35 Hathaway Street",
     "addressLocality": "New Bedford",
     "addressRegion": "MA",
+    "postalCode": "02746",
     "addressCountry": "US"
   },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "14"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Daniel M"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+      "reviewBody": "Very fast and reliable service."
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Organization", "name": "MW Roofing & Carpentry"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+      "reviewBody": "Always on time with deliveries and scheduling, very professional, and the gutter quality is excellent."
+    }
+  ],
   "areaServed": [
     "Southcoast Massachusetts",
     "Metro West Massachusetts",
@@ -53,10 +75,53 @@
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "07:00",
       "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "07:00",
+      "closes": "14:00"
     }
-  ],
-  "sameAs": [
-    "https://alphagutterco.com/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Alpha Seamless Gutter install gutters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Alpha is a materials supplier and mobile fabricator. We cut and drop custom-length seamless gutter for contractors, roofers, siding companies, and homeowners; your crew handles installation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can Alpha deliver seamless gutter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most jobs are handled same-day or next-day. Call or text early with the profile, color, lengths, job town, and timeline so Alpha can confirm pricing and delivery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What gutter sizes and materials are available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alpha fabricates 5-inch and 6-inch K-style seamless aluminum gutter, plus downspouts, elbows, miters, end caps, outlets, hangers, and leaf protection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas does Alpha Seamless Gutter serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alpha serves Southcoast Massachusetts, Metro West, and Greater Boston from its New Bedford base. If your town is nearby, call or text to confirm coverage."
+      }
+    }
   ]
 }
 </script>
@@ -92,6 +157,12 @@
   h1,h2,h3,h4{font-family:'Barlow Condensed',sans-serif;line-height:1.02;text-transform:uppercase;letter-spacing:.005em;font-weight:800;}
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
+  .skip-link{
+    position:absolute;left:16px;top:12px;z-index:999;
+    background:#fff;color:var(--ink);padding:10px 14px;
+    border:2px solid var(--orange);transform:translateY(-140%);
+  }
+  .skip-link:focus{transform:translateY(0);}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px;}
   .eyebrow{
     font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;
@@ -267,6 +338,27 @@
   .trust .item svg{flex-shrink:0;}
   @media(max-width:880px){.trust .wrap{justify-content:center;gap:14px 26px;}}
 
+  /* ---------- REVIEW PROOF ---------- */
+  #reviews{background:#fff;}
+  .review-summary{
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    background:var(--ink);color:var(--on-dark);padding:28px 30px;margin-bottom:22px;
+  }
+  .review-score{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .review-score strong{font-family:'Barlow Condensed',sans-serif;font-size:2.8rem;line-height:1;color:#fff;}
+  .review-stars{color:#f5ad00;letter-spacing:.08em;font-size:1.25rem;}
+  .review-summary h2{font-size:2rem;color:#fff;margin:10px 0 12px;}
+  .review-summary p{color:var(--on-dark-soft);max-width:44ch;}
+  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .review-card{border:1px solid var(--paper-2);border-top:4px solid var(--orange);padding:24px;background:var(--paper);}
+  .review-card .stars{color:#f5ad00;letter-spacing:.07em;margin-bottom:10px;}
+  .review-card blockquote{font-size:1.05rem;color:var(--text);line-height:1.55;}
+  .review-card cite{display:block;margin-top:12px;font-style:normal;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-soft);}
+  @media(max-width:880px){
+    .review-summary{align-items:flex-start;flex-direction:column;}
+    .review-grid{grid-template-columns:1fr;}
+  }
+
   /* ---------- DELIVERY BAND ---------- */
   .delivery{background:var(--ink-2);color:var(--on-dark);border-bottom:1px solid var(--steel-line);}
   .delivery .wrap{
@@ -394,7 +486,7 @@
     display:flex;align-items:center;justify-content:center;font-weight:800;
     font-family:'Barlow Condensed',sans-serif;
   }
-  .feat-list h4{font-size:1.22rem;color:var(--ink);}
+  .feat-list h3{font-size:1.22rem;color:var(--ink);}
   .feat-list p{font-size:.97rem;color:var(--text-soft);}
   .who-box{background:var(--ink);color:var(--on-dark);padding:38px 34px;}
   .who-box h3{color:#fff;font-size:1.7rem;margin-bottom:6px;}
@@ -449,6 +541,14 @@
   .area-note p{font-family:'Barlow Condensed',sans-serif;font-weight:600;
     text-transform:uppercase;letter-spacing:.03em;font-size:1.2rem;color:#fff;}
   @media(max-width:880px){.area-grid{grid-template-columns:1fr;}}
+
+  /* ---------- FAQ ---------- */
+  #faq{background:var(--paper);}
+  .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .faq-item{background:#fff;border:1px solid var(--paper-2);border-left:4px solid var(--orange);padding:24px;}
+  .faq-item h3{font-size:1.25rem;color:var(--ink);margin-bottom:8px;}
+  .faq-item p{color:var(--text-soft);}
+  @media(max-width:880px){.faq-grid{grid-template-columns:1fr;}}
 
   /* ---------- QUOTE / CONTACT ---------- */
   #quote{background:var(--ink-2);color:var(--on-dark);}
@@ -545,6 +645,7 @@
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- ============ TOP BAR ============ -->
 <div class="topbar">
@@ -585,6 +686,8 @@
   </div>
 </header>
 
+<main id="main-content">
+
 <!-- ============ HERO ============ -->
 <section class="hero" id="top" style="padding:0;">
   <div class="wrap">
@@ -618,7 +721,7 @@
     </div>
     <!-- HERO PHOTO — the Alpha Seamless Gutter truck -->
     <div class="photo-slot hero-photo reveal">
-      <img src="assets/truck.webp" alt="Alpha Seamless Gutter, LLC mobile fabrication truck">
+      <img src="assets/truck.webp" alt="Alpha Seamless Gutter, LLC mobile fabrication truck" width="1400" height="941" fetchpriority="high" decoding="async">
     </div>
   </div>
 </section>
@@ -644,6 +747,36 @@
     </div>
   </div>
 </div>
+
+<!-- ============ REVIEW PROOF ============ -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="review-summary reveal">
+      <div>
+        <div class="eyebrow">Verified Google Reviews</div>
+        <h2>Trusted By Local Crews</h2>
+        <div class="review-score" aria-label="5.0 stars from 14 Google reviews">
+          <strong>5.0</strong>
+          <span class="review-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>14 Google reviews</span>
+        </div>
+      </div>
+      <p>Contractors and crews call Alpha when they need fast communication, reliable delivery, and clean material for active jobs.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Very fast and reliable service.&rdquo;</blockquote>
+        <cite>Daniel M</cite>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Always on time with deliveries and scheduling, very professional, and the gutter quality is excellent.&rdquo;</blockquote>
+        <cite>MW Roofing &amp; Carpentry</cite>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ DELIVERY BAND ============ -->
 <div class="delivery">
@@ -756,35 +889,35 @@
           <!-- PHOTO 1: Alpha mobile gutter machine close-up -->
           <div class="gallery-slide">
             <div class="photo-slot">
-              <img src="assets/gallery-machine-closeup.webp" alt="Alpha Seamless Gutter mobile machine with aluminum gutter coil inside the truck">
+              <img src="assets/gallery-machine-closeup.webp" alt="Alpha Seamless Gutter mobile machine with aluminum gutter coil inside the truck" width="960" height="720" loading="lazy" decoding="async">
               <div class="ps-cap">Mobile Gutter Machine</div>
             </div>
           </div>
           <!-- PHOTO 2: Alpha machine running seamless gutter -->
           <div class="gallery-slide">
             <div class="photo-slot">
-              <img src="assets/gallery-machine-running.webp" alt="Seamless gutter being fabricated from the back of the Alpha box truck">
+              <img src="assets/gallery-machine-running.webp" alt="Seamless gutter being fabricated from the back of the Alpha box truck" width="960" height="720" loading="lazy" decoding="async">
               <div class="ps-cap">Cut On Site</div>
             </div>
           </div>
           <!-- PHOTO 3: Alpha gutter machine detail -->
           <div class="gallery-slide">
             <div class="photo-slot">
-              <img src="assets/gallery-machine-detail.webp" alt="Close-up of Alpha Seamless Gutter machine controls and aluminum coil inside the truck">
+              <img src="assets/gallery-machine-detail.webp" alt="Close-up of Alpha Seamless Gutter machine controls and aluminum coil inside the truck" width="960" height="720" loading="lazy" decoding="async">
               <div class="ps-cap">Machine Detail</div>
             </div>
           </div>
           <!-- PHOTO 4: Alpha box truck fabricating gutter -->
           <div class="gallery-slide">
             <div class="photo-slot">
-              <img src="assets/gallery-alpha-truck-work.webp" alt="Alpha Seamless Gutter box truck fabricating a long seamless gutter run">
+              <img src="assets/gallery-alpha-truck-work.webp" alt="Alpha Seamless Gutter box truck fabricating a long seamless gutter run" width="960" height="720" loading="lazy" decoding="async">
               <div class="ps-cap">Alpha Box Truck</div>
             </div>
           </div>
           <!-- PHOTO 5: Finished residential gutter roofline -->
           <div class="gallery-slide">
             <div class="photo-slot">
-              <img src="assets/gallery-finished-roofline.webp" alt="Finished residential roofline with clean white seamless gutters">
+              <img src="assets/gallery-finished-roofline.webp" alt="Finished residential roofline with clean white seamless gutters" width="720" height="540" loading="lazy" decoding="async">
               <div class="ps-cap">Finished Roofline</div>
             </div>
           </div>
@@ -811,35 +944,35 @@
         <li>
           <span class="chk">&#10003;</span>
           <div>
-            <h4>Same-Day &amp; Next-Day Delivery</h4>
+            <h3>Same-Day &amp; Next-Day Delivery</h3>
             <p>Order before noon and we fabricate and drop the same day. Everything else is next-day &mdash; schedule jobs with confidence.</p>
           </div>
         </li>
         <li>
           <span class="chk">&#10003;</span>
           <div>
-            <h4>Truly Seamless Runs</h4>
+            <h3>Truly Seamless Runs</h3>
             <p>Continuous lengths mean fewer joints, fewer leak points, and a cleaner finished look your clients notice.</p>
           </div>
         </li>
         <li>
           <span class="chk">&#10003;</span>
           <div>
-            <h4>We Come To The Job</h4>
+            <h3>We Come To The Job</h3>
             <p>Mobile fabrication means material is cut where you need it &mdash; no detours to a supply yard, no idle crew.</p>
           </div>
         </li>
         <li>
           <span class="chk">&#10003;</span>
           <div>
-            <h4>One Stop For The Whole Order</h4>
+            <h3>One Stop For The Whole Order</h3>
             <p>Gutter, downspout, elbows, miters, outlets, hangers and guard &mdash; your crew isn&rsquo;t hunting for parts.</p>
           </div>
         </li>
         <li>
           <span class="chk">&#10003;</span>
           <div>
-            <h4>Clear, Straightforward Pricing</h4>
+            <h3>Clear, Straightforward Pricing</h3>
             <p>Simple per-foot pricing on every order &mdash; no guesswork, no surprises when the invoice lands.</p>
           </div>
         </li>
@@ -950,13 +1083,42 @@
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow center">07 &mdash; Common Questions</div>
+      <h2>Before You Order</h2>
+      <p class="intro">Quick answers for contractors, roofers, siding companies, and homeowners planning a cut-and-drop gutter order.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <h3>Does Alpha Seamless Gutter install gutters?</h3>
+        <p>No. Alpha is a materials supplier and mobile fabricator. We cut and drop custom-length seamless gutter for contractors, roofers, siding companies, and homeowners; your crew handles installation.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>How fast can Alpha deliver seamless gutter?</h3>
+        <p>Most jobs are handled same-day or next-day. Call or text early with the profile, color, lengths, job town, and timeline so Alpha can confirm pricing and delivery.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>What gutter sizes and materials are available?</h3>
+        <p>Alpha fabricates 5-inch and 6-inch K-style seamless aluminum gutter, plus downspouts, elbows, miters, end caps, outlets, hangers, and leaf protection.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>What areas does Alpha Seamless Gutter serve?</h3>
+        <p>Alpha serves Southcoast Massachusetts, Metro West, and Greater Boston from its New Bedford base. If your town is nearby, call or text to confirm coverage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ QUOTE / CONTACT ============ -->
 <section id="quote">
   <div class="wrap">
     <div class="quote-grid">
       <div class="contact-block reveal">
         <div class="sec-head">
-          <div class="eyebrow">07 &mdash; Get Started</div>
+          <div class="eyebrow">08 &mdash; Get Started</div>
           <h2>Request A Quote</h2>
           <p class="intro" style="color:var(--on-dark-soft);">Fastest way to get a number is to call or text your job details. Send the form if you want us to review the scope, price it, and line up delivery after we look it over.</p>
         </div>
@@ -978,7 +1140,7 @@
           <div class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
           <div>
             <div class="cl">Hours</div>
-            <div class="cv sm">Mon&ndash;Fri 7:00am&ndash;5:00pm &middot; Sat by appointment</div>
+            <div class="cv sm">Mon&ndash;Fri 7:00am&ndash;5:00pm &middot; Sat 7:00am&ndash;2:00pm</div>
           </div>
         </div>
         <div class="cline">
@@ -1003,31 +1165,31 @@
           To collect submissions in an inbox/dashboard instead, create a free form at
           https://formspree.io, then set FORMSPREE_ENDPOINT below to your form URL.
         -->
-        <div id="qform">
+        <form id="qform">
           <div class="frow">
             <div class="field">
-              <label>Name <span class="req">*</span></label>
-              <input type="text" id="f-name" placeholder="Your name">
+              <label for="f-name">Name <span class="req">*</span></label>
+              <input type="text" id="f-name" name="name" placeholder="Your name" autocomplete="name" required>
             </div>
             <div class="field">
-              <label>Company</label>
-              <input type="text" id="f-company" placeholder="Contractor / business (optional)">
+              <label for="f-company">Company</label>
+              <input type="text" id="f-company" name="company" placeholder="Contractor / business (optional)" autocomplete="organization">
             </div>
           </div>
           <div class="frow">
             <div class="field">
-              <label>Phone <span class="req">*</span></label>
-              <input type="tel" id="f-phone" placeholder="(508) 000-0000">
+              <label for="f-phone">Phone <span class="req">*</span></label>
+              <input type="tel" id="f-phone" name="phone" placeholder="(508) 000-0000" autocomplete="tel" required>
             </div>
             <div class="field">
-              <label>Email</label>
-              <input type="email" id="f-email" placeholder="you@email.com">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" name="email" placeholder="you@email.com" autocomplete="email">
             </div>
           </div>
           <div class="frow">
             <div class="field">
-              <label>Gutter Size</label>
-              <select id="f-size">
+              <label for="f-size">Gutter Size</label>
+              <select id="f-size" name="gutter_size">
                 <option>Not sure yet</option>
                 <option>5&quot; K-Style</option>
                 <option>6&quot; K-Style</option>
@@ -1035,22 +1197,24 @@
               </select>
             </div>
             <div class="field">
-              <label>Job Town</label>
-              <input type="text" id="f-town" placeholder="Where is the job?">
+              <label for="f-town">Job Town</label>
+              <input type="text" id="f-town" name="job_town" placeholder="Where is the job?" autocomplete="address-level2">
             </div>
           </div>
           <div class="field">
-            <label>Job Details &amp; Timeline</label>
-            <textarea id="f-details" placeholder="Approx. linear feet, color, downspouts, accessories — and when you need it delivered..."></textarea>
+            <label for="f-details">Job Details &amp; Timeline</label>
+            <textarea id="f-details" name="details" placeholder="Approx. linear feet, color, downspouts, accessories — and when you need it delivered..."></textarea>
           </div>
-          <button class="btn btn-orange btn-lg" id="f-submit" data-track="quote_request_click" data-track-label="quote form submit button">Send Quote Request</button>
+          <button class="btn btn-orange btn-lg" id="f-submit" type="submit" data-track="quote_request_click" data-track-label="quote form submit button">Send Quote Request</button>
           <p class="form-note">We typically respond the same business day.</p>
-          <div class="form-msg" id="f-msg">Thanks &mdash; your request is on its way. We&rsquo;ll be in touch shortly. Need it fast? Call <b>508-496-5173</b>.</div>
-        </div>
+          <div class="form-msg" id="f-msg" role="status" aria-live="polite">Thanks &mdash; your request is on its way. We&rsquo;ll be in touch shortly. Need it fast? Call <b>508-496-5173</b>.</div>
+        </form>
       </div>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ============ FOOTER ============ -->
 <footer>
@@ -1081,6 +1245,7 @@
           <li><a href="mailto:info@alphagutterco.com">info@alphagutterco.com</a></li>
           <li>New Bedford, MA</li>
           <li>Mon&ndash;Fri 7am&ndash;5pm</li>
+          <li>Sat 7am&ndash;2pm</li>
           <li>alphagutterco.com</li>
         </ul>
       </div>
@@ -1179,7 +1344,8 @@
 
   function val(id){ return (document.getElementById(id).value || "").trim(); }
 
-  document.getElementById('f-submit').addEventListener('click', function(){
+  document.getElementById('qform').addEventListener('submit', function(e){
+    e.preventDefault();
     var btn = document.getElementById('f-submit');
     var name = val('f-name'), phone = val('f-phone');
     if(!name || !phone){
