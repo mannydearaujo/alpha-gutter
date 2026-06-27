@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /design-mockup.html
+Disallow: /*.html$
 
 Sitemap: https://alphagutterco.com/sitemap.xml
