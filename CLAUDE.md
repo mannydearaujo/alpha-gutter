@@ -23,8 +23,17 @@ content; when you change one, change the other.
 - `site-tracking.js` sends lead events through `window.alphaTrackLead`. A `data-track` attribute
   names the event; without one, `tel:` → `phone_tap`, `sms:` → `sms_tap`, `mailto:` → `email_click`.
   Use `data-track-label` to say where the click happened.
-- The quote form in `index.html` posts to the Formspree endpoint set in `FORMSPREE_ENDPOINT`, with a
-  `mailto:` fallback.
+- Quote forms: every indexable page has one (`<form data-quote-form="label">`; full form on the
+  homepage, short form in `#quote` on service and town pages). `/site-forms.js` handles them all:
+  validation, POST to the Formspree endpoint in `ENDPOINT`, and a visible error with call/text
+  links when the send fails. Never show a success message unless Formspree returned OK. Forms keep
+  `action`/`method` so they still post without JavaScript, plus a hidden `_gotcha` honeypot.
+- Lead events: `phone_tap`, `sms_tap`, `email_click`, `quote_request_submit` (real sends only),
+  `quote_request_error`, `quote_form_start`, `quote_request_click` (buttons that jump to the form;
+  not a conversion). Do not put `data-track` on a submit button.
+- `sms:` links are pre-filled with the order checklist (`?&body=`); town pages include the town.
+- Service and town pages carry a sticky Call / Text / Quote bar (`.mobile-bar`, phones only), like
+  the homepage. Shared CSS for it sits in each page's `<style>` under "shared: lead paths".
 
 ## Pages
 - `index.html`, `service-area.html`, and four service pages (cut and drop, 5 and 6 inch K-style,
@@ -33,16 +42,28 @@ content; when you change one, change the other.
   FAQPage schema) and **27 retired stubs** that point visitors to `/service-area`. Stubs are `noindex, follow` with no
   canonical tag (since 2026-11) and stay out of the sitemap; never give a stub a canonical to a
   different URL.
-- `design-mockup.html` is an internal mockup, blocked in `robots.txt`. `sitemap.xml` lists only the
-  real pages (no stubs).
+- `sitemap.xml` lists only the real pages (no stubs); update `lastmod` when a page changes.
+- `404.html` is the branded not-found page. It also redirects trailing-slash and `.html` URLs to
+  the clean URL, because GitHub Pages has no redirects. (`design-mockup.html` was removed 2026-11.)
+- Favicons are real files at the root (`favicon.ico`, `favicon.svg`, `favicon-96.png`,
+  `apple-touch-icon.png`); the share image is `assets/share-1200x630.jpg`.
 - New or rewritten town and service pages are written with the `alpha-seo-content` skill.
 
 ## Rules
 - Schema: no self-published `aggregateRating` on LocalBusiness markup (removed 2026-11; Google does
   not show stars for it and it risks a review-spam flag). Visible FAQ text must match FAQPage schema.
+- Google Business Profile: https://share.google/JFSDFZNBX3WYAZYqX (in schema `sameAs` and the review links). Review
+  form: https://g.page/r/CWUBYzPV0YZmEBM/review. The "5.0 from 15 Google reviews" text is typed by hand (checked
+  2026-11-13); recheck the profile before changing it.
+- Alpha takes calls in English, Portuguese and Spanish; pages say so in one line (no translated pages).
 - No fake reviews, no ranking promises, no doorway pages: a town page ships only with real,
   town-specific detail.
 - One `<h1>` per page; every image has alt text; every page has a canonical tag.
+- Business schema: every page uses the same `HomeAndConstructionBusiness` node with
+  `@id` `https://alphagutterco.com/#business` (copied from the homepage; only the homepage adds
+  `review`). Town-specific cities go on the page's `Service` node, not on the business node.
+- `<meta charset>` is the first tag in `<head>`; titles stay at or under about 60 characters and
+  descriptions under about 155.
 
 
 
