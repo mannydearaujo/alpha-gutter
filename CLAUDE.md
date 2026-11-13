@@ -30,7 +30,9 @@ content; when you change one, change the other.
 - `index.html`, `service-area.html`, and four service pages (cut and drop, 5 and 6 inch K-style,
   same-day delivery, colors and accessories).
 - 40 town files named `seamless-gutters-<town>-ma.html`: **13 full town pages** (unique copy, FAQ,
-  FAQPage schema) and **27 retired stubs** that point visitors to `/service-area`.
+  FAQPage schema) and **27 retired stubs** that point visitors to `/service-area`. Stubs are `noindex, follow` with no
+  canonical tag (since 2026-11) and stay out of the sitemap; never give a stub a canonical to a
+  different URL.
 - `design-mockup.html` is an internal mockup, blocked in `robots.txt`. `sitemap.xml` lists only the
   real pages (no stubs).
 - New or rewritten town and service pages are written with the `alpha-seo-content` skill.
