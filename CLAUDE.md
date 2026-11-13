@@ -52,6 +52,10 @@ content; when you change one, change the other.
 ## Rules
 - Schema: no self-published `aggregateRating` on LocalBusiness markup (removed 2026-11; Google does
   not show stars for it and it risks a review-spam flag). Visible FAQ text must match FAQPage schema.
+- Google Business Profile: https://share.google/JFSDFZNBX3WYAZYqX (in schema `sameAs` and the review links). Review
+  form: https://g.page/r/CWUBYzPV0YZmEBM/review. The "5.0 from 15 Google reviews" text is typed by hand (checked
+  2026-11-13); recheck the profile before changing it.
+- Alpha takes calls in English, Portuguese and Spanish; pages say so in one line (no translated pages).
 - No fake reviews, no ranking promises, no doorway pages: a town page ships only with real,
   town-specific detail.
 - One `<h1>` per page; every image has alt text; every page has a canonical tag.
